@@ -5,14 +5,15 @@ import { HomeComponent } from './home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-  },
+    component: HomeComponent,  
 
-  {
-    path: 'profile',
+    children:[
+    {path: 'profile',
     loadChildren: () => 
-      import('./pages/profile/profile.module').then((m) =>m.ProfileModule),    
-  }
+      import('./pages/profile/profile.module').then((m) =>m.ProfileModule),
+    }],    
+  
+  },
 ];
 
 @NgModule({
